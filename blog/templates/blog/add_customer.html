@@ -1,0 +1,124 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Styled Form with Actions</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+            body {
+                font-family: 'Roboto', sans-serif;
+                background-color: rgb(245, 245, 245);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+            }
+
+            form {
+                background: #ffffff;
+                padding: 40px;
+                border-radius: 12px;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+                width: 100%;
+                max-width: 450px;
+                box-sizing: border-box;
+            }
+
+            form p {
+                margin-bottom: 20px;
+            }
+
+            form label {
+                display: block;
+                margin-bottom: 6px;
+                color: #333;
+                font-weight: 500;
+            }
+
+            form input[type="text"],
+            form input[type="password"],
+            form input[type="email"],
+            form select,
+            form textarea {
+                width: 100%;
+                padding: 12px 15px;
+                margin-top: 4px;
+                border: 1px solid #ced4da;
+                border-radius: 6px;
+                box-sizing: border-box;
+                transition: border-color 0.3s ease, box-shadow 0.3s ease;
+                font-size: 14px;
+            }
+
+            form input[type="text"]:focus,
+            form input[type="password"]:focus,
+            form input[type="email"]:focus,
+            form select:focus,
+            form textarea:focus {
+                border-color: #007bff;
+                box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+                outline: none;
+            }
+
+            .button-group {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 20px;
+            }
+
+            .button-group button {
+                flex: 1;
+                padding: 14px 20px;
+                border: none;
+                border-radius: 6px;
+                cursor: pointer;
+                font-size: 16px;
+                font-weight: 500;
+                transition: background-color 0.3s ease, transform 0.2s;
+            }
+
+            .submit-button {
+                background-color: #007bff;
+                color: white;
+                margin-right: 10px; /* Spacing between buttons */
+            }
+
+            .reset-button {
+                background-color: #ff6b81;
+                color: white;
+                margin-right: 10px; /* Spacing between buttons */
+            }
+
+            .cancel-button {
+                background-color: black;
+                color: white;
+            }
+
+            .button-group button:hover {
+                transform: translateY(-2px);
+            }
+
+            .joke {
+                margin-bottom: 20px;
+                font-size: 16px;
+                color: #555;
+                text-align: center;
+                font-weight: 500;
+            }
+        </style>
+    </head>
+    <body>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="button-group">
+                <button type="submit" class="submit-button">Submit</button>
+                <button type="reset" class="reset-button">Reset</button>
+                <button type="button" class="cancel-button" onclick="window.location.href='/'">Cancel</button>
+            </div>
+        </form>
+    </body>
+    </html>
