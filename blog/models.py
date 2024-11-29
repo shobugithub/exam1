@@ -18,7 +18,7 @@ class Product(models.Model):
     rating = models.IntegerField(choices=RatingChoice.choices, default=RatingChoice.Zero.value)
     amount = models.IntegerField(default=1)
     discount = models.IntegerField()
-    attribute = models.ManyToManyField('Attribute', blank=True, null=True, related_name='attributes')
+    attribute = models.ManyToManyField('Attribute', blank=True, related_name='attributes')
     # attribute_value = models.ManyToManyField('AttributeValue', blank=True, null=True)
 
     @property
@@ -53,7 +53,7 @@ class Customers(models.Model):
     billing_address = models.CharField(max_length=255)
     image = models.ImageField(upload_to='profile_pictures/', blank=True,null=True)
     description = models.TextField()
-    vat_number = models.IntegerField(max_length=11)
+    vat_number = models.IntegerField()
     invoice_prefix = models.CharField(max_length=255)
 
     created_at = models.DateTimeField(auto_now_add=True)

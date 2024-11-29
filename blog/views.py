@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.db.models import Q
 
 from blog.models import Product,Customers
-from blog.froms import CustomerAddForm
+from blog.forms import CustomerAddForm
 
 
 # Create your views here.
